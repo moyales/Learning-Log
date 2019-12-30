@@ -1,5 +1,8 @@
-<h1>
-    <a href="{% url 'learning_logs:index' %}">Learning Log</a>
-</h1>
+<h1>Learning Log | A Notebook Application</h1>
+
+<h3>
+    <a href="{% url 'learning_logs:index' %}">Learning Log</a> --
+    <a href="{% url 'learning_logs:topics' %}">Topics</a>
+</h3>
 
 {% block content %}{% endblock content %}
