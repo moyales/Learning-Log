@@ -60,6 +60,8 @@ def new_topic(request):
 def new_entry(request, topic_id):
     '''Adds a new entry for a particular topic.'''
     topic = Topic.objects.get(id=topic_id)
+    if topic.owner != request.user:
+        raise Http404
 
     if request.method != 'POST':
         # No data submitted; create a blank form.
@@ -103,4 +105,5 @@ def edit_entry(request, entry_id):
 def check_topic_owner(x, request):
     '''Refactored check for user verification'''
     if x != request.user:
-        raise Http404
+        return False
+    return True
