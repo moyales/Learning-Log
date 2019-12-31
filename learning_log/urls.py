@@ -21,6 +21,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Include the urls we'll write for the users app:
+    path('users/', include('users.urls')),
     # Added a line to include module learning_logs.urls
     path('', include('learning_logs.urls')),
 ]
